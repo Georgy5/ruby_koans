@@ -46,6 +46,14 @@ class AboutHashes < EdgeCase::Koan
     assert_equal __(Array), hash.keys.class
   end
 
+  def test_hash_has_alias_methods_of_has_key
+    hash = { "jim" => 53, "amy" => 20, "dan" => 23 }
+    assert_equal __(true), hash.has_key?("jim")
+    assert_equal __(true), hash.include?("amy")
+    assert_equal __(true), hash.key?("dan")
+    assert_equal __(true), hash.member?("jim")
+  end
+
   def test_hash_values
     hash = { :one => "uno", :two => "dos" }
     assert_equal __(2), hash.values.size
