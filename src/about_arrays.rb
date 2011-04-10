@@ -81,4 +81,47 @@ class AboutArrays < EdgeCase::Koan
     assert_equal __([1, 2]), array
   end
 
+  def test_adding_arrays
+    array1 = [:peanut, :butter, :and, :jelly]
+    array2 = [:bread, :and, :butter]
+
+    assert_equal __([:peanut, :butter, :and, :jelly, :bread, :and, :butter]), array1 + array2
+  end
+
+  def test_subtracting_arrays
+    array1 = [:peanut, :butter, :and, :jelly]
+    array2 = [:bread, :and, :butter]
+
+    assert_equal __([:peanut, :jelly]), array1 - array2
+  end
+
+  def test_intersecting_arrays
+    array1 = [:peanut, :butter, :and, :jelly]
+    array2 = [:bread, :and, :butter]
+
+    assert_equal __([:butter, :and]), array1 & array2
+  end
+
+  def test_unionizing_arrays
+    array1 = [:peanut, :butter, :and, :jelly]
+    array2 = [:bread, :and, :butter]
+
+    assert_equal __([:peanut, :butter, :and, :jelly, :bread]), array1 | array2
+  end
+
+  def test_getting_unique_elements
+    array = [:peanut, :butter, :and, :jelly, :bread, :and, :butter]
+
+    assert_equal __([:peanut, :butter, :and, :jelly, :bread]), array.uniq
+  end
+
+  def test_sorting_arrays
+    array = ["cappuccino", "tea", "coffee", "smoothie", "latte"]
+
+    assert_equal __([["cappuccino", "coffee", "latte", "smoothie", "tea"]]), array.sort
+    assert_equal __(["tea", "smoothie", "latte", "coffee", "cappuccino"]), array.sort {|i, j| j <=> i}
+    assert_equal __(["tea", "latte", "coffee", "smoothie", "cappuccino"]), array.sort {|i, j| i.length <=> j.length}
+    assert_equal __(["cappuccino", "smoothie", "coffee", "latte", "tea"]), array.sort {|i, j| -i.length <=> -j.length}
+  end
+
 end

@@ -81,4 +81,47 @@ class AboutArrays < EdgeCase::Koan
     assert_equal __, array
   end
 
+  def test_adding_arrays
+    array1 = [:peanut, :butter, :and, :jelly]
+    array2 = [:bread, :and, :butter]
+
+    assert_equal __, array1 + array2
+  end
+
+  def test_subtracting_arrays
+    array1 = [:peanut, :butter, :and, :jelly]
+    array2 = [:bread, :and, :butter]
+
+    assert_equal __, array1 - array2
+  end
+
+  def test_intersecting_arrays
+    array1 = [:peanut, :butter, :and, :jelly]
+    array2 = [:bread, :and, :butter]
+
+    assert_equal __, array1 & array2
+  end
+
+  def test_unionizing_arrays
+    array1 = [:peanut, :butter, :and, :jelly]
+    array2 = [:bread, :and, :butter]
+
+    assert_equal __, array1 | array2
+  end
+
+  def test_getting_unique_elements
+    array = [:peanut, :butter, :and, :jelly, :bread, :and, :butter]
+
+    assert_equal __, array.uniq
+  end
+
+  def test_sorting_arrays
+    array = ["cappuccino", "tea", "coffee", "smoothie", "latte"]
+
+    assert_equal __, array.sort
+    assert_equal __, array.sort {|i, j| j <=> i}
+    assert_equal __, array.sort {|i, j| i.length <=> j.length}
+    assert_equal __, array.sort {|i, j| -i.length <=> -j.length}
+  end
+
 end

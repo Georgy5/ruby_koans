@@ -100,6 +100,18 @@ EOS
     # plus equals operator (+=) when building up strings.  Why?
   end
 
+  def test_equal_operator_is_not_a_reference_assignment
+    original_string = "Hello"
+    hi = original_string
+    original_string = "Bye"
+    assert_equal __, hi
+
+    original_string = "Hello"
+    hi = original_string
+    hi = "Hi"
+    assert_equal __, original_string
+  end
+
   def test_double_quoted_string_interpret_escape_characters
     string = "\n"
     assert_equal __, string.size
