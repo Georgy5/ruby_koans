@@ -139,6 +139,15 @@ class AboutRegularExpressions < EdgeCase::Koan
     assert_equal __(nil), "Jim Gray"[grays, 1]
   end
 
+  def test_pattern_interpolates_like_a_double_quoted_string
+    first_names = "(James|Dana|Summer)"
+    assert_equal __("James Gray"), "James Gray"[/#{first_names} Gray/]
+  end
+
+  def test_pattern_can_have_a_comment
+    assert_equal __("Gray"), "James Gray"[/(?#last_name)Gray/]
+  end
+
   # THINK ABOUT IT:
   #
   # Explain the difference between a character class ([...]) and alternation (|).

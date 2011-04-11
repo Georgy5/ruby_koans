@@ -51,6 +51,14 @@ EOS
     assert_equal __(53), long_string.size
   end
 
+  def test_you_can_indent_a_here_document_terminator
+    long_string = <<-EOS
+      It was the best of times,
+      It wad the worst of times.
+      EOS
+    assert_equal __(65), long_string.size
+  end
+
   def test_plus_will_concatenate_two_strings
     string = "Hello, " + "World"
     assert_equal __("Hello, World"), string
