@@ -76,4 +76,13 @@ class AboutScope < EdgeCase::Koan
     assert_equal __, Jims.constants
     assert Object.constants.size > _n_
   end
+
+  def test_if_expression_does_not_make_scope
+    if true
+      var = "HI"
+    else
+      var = "BYE"
+    end
+    assert_equal __, var
+  end
 end

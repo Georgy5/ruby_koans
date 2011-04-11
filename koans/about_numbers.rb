@@ -41,4 +41,15 @@ class AboutNumbers < EdgeCase::Koan
     assert_equal __, 6e-3.class
   end
 
+  def test_float_does_not_have_bit_shift_operators
+    assert_equal __, 1 << 2.0
+    assert_equal __, 2 >> 1.0
+    assert_raise(___) do
+      1.0 << 2
+    end
+    assert_raise(___) do
+      2.0 >> 1
+    end
+  end
+
 end

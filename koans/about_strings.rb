@@ -79,6 +79,12 @@ EOS
     assert_equal __, original_string
   end
 
+  def test_you_cannot_append_a_number_by_the_plus_operator
+    assert_raise(___) do
+      "Hello " + 3
+    end
+  end
+
   def test_the_shovel_operator_will_also_append_content_to_a_string
     hi = "Hello, "
     there = "World"
@@ -193,6 +199,12 @@ EOS
   def test_strings_can_be_joined
     words = ["Now", "is", "the", "time"]
     assert_equal __, words.join(" ")
+  end
+
+  def test_strings_can_be_counted_up
+    result = []
+    "ji".upto("jo") {|s| result << s}
+    assert_equal [__, __, __, __, __, __, __], result
   end
 
   def test_strings_are_unique_objects
